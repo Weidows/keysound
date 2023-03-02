@@ -15,6 +15,9 @@
     <router-link class="item" to="/about"
       ><i class="iconfont icon-guanyu_o"></i
     ></router-link>
+    <router-link class="item" to="/vuex"
+      ><i class="iconfont icon-guanyu_o"></i
+    ></router-link>
   </div>
 </template>
 

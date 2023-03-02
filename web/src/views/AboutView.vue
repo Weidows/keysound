@@ -4,7 +4,7 @@
     <p>by bilibili Bojaka</p>
     <p>用于给 键盘 和 鼠标 绑定音效</p>
     <p>目前只支持Windows</p>
-    <p>当前版本 beta 1.5 稍微优化版</p>
+    <p>当前版本 2.0 稍加优化</p>
   </div>
 </template>
 

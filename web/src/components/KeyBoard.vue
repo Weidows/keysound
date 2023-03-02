@@ -144,7 +144,6 @@ export default {
             bus.emit("selectKEY", item.innerText)
           })
           item.addEventListener('mouseup',()=>{
-            // upKEY(item.innerText)
           })
         }
       })

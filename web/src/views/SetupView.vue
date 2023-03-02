@@ -1,6 +1,8 @@
 <template>
   <div class="setup">
     <p>键盘发声 <el-switch v-model="value1" @change="sw" /></p>
+    <!-- <p>只允许一个音效播放 <el-switch v-model="value4" @change="auto_run" /></p> -->
+    
     <!-- <p>鼠标发声 <el-switch v-model="value2" @change="sw" /></p> -->
     <p>开机自启 <el-switch v-model="value3" @change="auto_run" /></p>
   </div>
@@ -14,6 +16,7 @@ export default {
       value1: false,
       value2: false,
       value3: false,
+      value4: false,
     });
     onActivated(() => {
         pywebview.api.globalSwitch(false, state.value1, state.value2).then((result) => {

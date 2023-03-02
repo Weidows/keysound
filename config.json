@@ -1,6 +1,6 @@
 {
-    "keyboard_flag": true,
-    "mouse_flag": false,
     "choose_sound": "老婆的声音",
+    "keyboard_flag": false,
+    "mouse_flag": false,
     "auto_run": false
 }

@@ -28,7 +28,7 @@
           v-if="value"
         >
           <el-option
-            v-for="item in ['随机', '重复', '指定']"
+            v-for="item in ['随机', '重复', '指定', '单键随机']"
             :key="item"
             :label="item"
             :value="item"
@@ -209,7 +209,7 @@
     <div class="soundsList">
       <ul>
         <li v-for="(item, index) in sound_info.soundsList" :key="index">
-          {{ item }}
+          <span>{{ item }}</span>
           <!-- <el-button type="danger" text > 删除 </el-button> -->
           <p @click="del_one_sound(item)">删除</p>
         </li>
@@ -226,6 +226,7 @@ import Mouse from "@/components/Mouse.vue";
 import { reactive, toRefs, onMounted } from "vue";
 import bus from "@/utils/bus.js";
 import { ElMessage, ElMessageBox } from "element-plus";
+import { get_sound_list_test } from '@/utils/pyapi.js'
 export default {
   name: "HomeView",
   components: {
@@ -595,6 +596,7 @@ export default {
   justify-content: space-between;
   color: #fff;
   .currentSound {
+    // height: 40px;
     padding: 5px 10px;
     // background: red;
     display: flex;
@@ -602,8 +604,9 @@ export default {
     align-items: center;
   }
   .soundsList {
-    height: 90px;
-    width: 250px;
+    // height: 90px;
+    height: 20%;
+    width: 470px;
     padding: 0px 10px;
     ul {
       height: 100%;
@@ -621,19 +624,29 @@ export default {
         background: #666;
         border-radius: 10px;
       }
-
+      // span{
+      //   cursor: pointer;
+      // }
       li {
+        width: 33%;
         list-style: none;
         cursor: pointer;
-        display: flex;
+        display: inline-flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 5px;
         border-bottom: 1px #ffffff00 solid;
+        padding: 0 5px;
+        span{
+          width: 100%;
+          display: flex;
+        }
         p {
-          padding: 0 5px;
+          // padding: 0 5px;
           color: #fff;
           transition: all 0.2s;
+          // 不允许换行
+          white-space: nowrap;
           &:hover {
             color: red;
           }
