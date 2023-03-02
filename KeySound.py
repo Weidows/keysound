@@ -7,6 +7,7 @@ from keyboard_util import *
 from sound_util import *
 from window_util import *
 
+
 if __name__ == '__main__':
   event1 = threading.Event()
   # 开线程监听键盘
