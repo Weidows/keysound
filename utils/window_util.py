@@ -1,14 +1,14 @@
-from window_config import window_config_obj
+from config.window_config import window_config_obj
 import os
 from pystray import MenuItem
 import pystray
 from PIL import Image
-from global_config import global_config_obj
+from config.global_config import global_config_obj
 import winreg
 import webview
-from mouse_util import *
-from keyboard_util import *
-from sound_util import *
+from utils.mouse_util import *
+from utils.keyboard_util import *
+from utils.sound_util import *
 import json
 
 # 初始化函数

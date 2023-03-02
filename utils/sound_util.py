@@ -1,12 +1,12 @@
-from global_config import global_config_obj
-from sound_config import SoundConfig
+from config.global_config import global_config_obj
+from config.sound_config import SoundConfig
 import playsound
 import random
 import os
 import json
 import shutil
 import webview
-from window_config import window_config_obj
+from config.window_config import window_config_obj
 
 # 导出音效
 def exportSound(name):
@@ -23,6 +23,8 @@ def exportSound(name):
 def importSound():
     file_types = ('Image Files (*.zip)', 'All files (*.*)')
     result = window_config_obj.window.create_file_dialog(webview.OPEN_DIALOG, allow_multiple=True, file_types=file_types)
+    if not result:
+        return
     for i in result:
       print(i)
       i = str(i)
@@ -55,11 +57,10 @@ def playSound(key):
     # 随机模式
     elif sound_config_obj.mode == '随机':
         soundsList = os.listdir(sound_folder)
-
-    sound = random.choice(soundsList)
-    print('随机播放音效：', sound)
-    play_sound(f'{sound_folder}/{sound}')
-    print('播放完毕------------')
+        sound = random.choice(soundsList)
+        print('随机播放音效：', sound)
+        play_sound(f'{sound_folder}/{sound}')
+        print('播放完毕------------')
 
 
 # 获取音效列表

@@ -25,7 +25,8 @@ class GlobalConfig:
             print('创建sounds文件夹')
 
     def reload(self):
-        self.__dict__ = json.loads("config.json")
+        with open('config.json', 'r', encoding='utf-8') as f:
+            self.__dict__.update(json.loads(f.read()))
 
     def save(self):
         with open('config.json', 'w', encoding='utf-8') as f:

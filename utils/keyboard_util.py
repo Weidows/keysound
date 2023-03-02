@@ -1,8 +1,8 @@
 import keyboard
 from utils.keyfilter import keyfilter
 import threading
-from window_config import window_config_obj
-from sound_util import playSound
+from config.window_config import window_config_obj
+from utils.sound_util import playSound
 
 keyList = {}
 
