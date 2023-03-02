@@ -13,12 +13,12 @@ class SoundConfig:
     def read_from_file(filename: str):
         config = SoundConfig()
         json_data = json.load(open(f'./sounds/{filename}/index.json', 'r', encoding='utf-8'))
-        # config.name = json_data["name"]
-        # config.mode = json_data["mode"]
-        # config.repeat_sound = json_data["repeat_sound"]
-        # config.assigned_sounds = json_data["assigned_sounds"]
-        # config.soundsList = json_data["soundsList"]
-        config.__dict__ = json_data
+        config.name = json_data["name"]
+        config.mode = json_data["mode"]
+        config.repeat_sound = json_data["repeat_sound"]
+        config.assigned_sounds = json_data["assigned_sounds"]
+        config.soundsList = json_data["soundsList"]
+        # config.__dict__ = json_data
         return config
 
     @staticmethod

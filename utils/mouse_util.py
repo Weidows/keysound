@@ -1,6 +1,6 @@
 import pynput
-from global_config import global_config_obj
-from window_config import window_config_obj
+from config.global_config import global_config_obj
+from config.window_config import window_config_obj
 import threading
 
 def on_scroll(x, y, dx, dy):
