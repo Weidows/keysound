@@ -2,6 +2,7 @@
     "name": "钢琴块",
     "mode": "指定",
     "repeat_sound": "",
+    "single_key": [],
     "assigned_sounds": [
         {
             "key": "Q",

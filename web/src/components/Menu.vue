@@ -6,18 +6,18 @@
     <!-- <router-link class="item" to="/mouse"
       ><i class="iconfont icon-mouseM"></i
     ></router-link> -->
-    <!-- <router-link class="item" to="/sounds"
-      ><i class="iconfont icon-shengyin"></i
-    ></router-link> -->
-    <router-link class="item" to="/setup"
-      ><i class="iconfont icon-shezhi"></i
-    ></router-link>
+    <!-- <router-link class="item" to="/sounds">
+      <i class="iconfont icon-shengyin"></i>
+    </router-link> -->
+    <router-link class="item" to="/setup">
+      <i class="iconfont icon-shezhi"></i>
+    </router-link>
     <router-link class="item" to="/about"
       ><i class="iconfont icon-guanyu_o"></i
     ></router-link>
-    <router-link class="item" to="/vuex"
+    <!-- <router-link class="item" to="/vuex"
       ><i class="iconfont icon-guanyu_o"></i
-    ></router-link>
+    ></router-link> -->
   </div>
 </template>
 

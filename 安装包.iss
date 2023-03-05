@@ -2,7 +2,7 @@
 ; 有关创建 Inno Setup 脚本文件的详细资料请查阅帮助文档！
 
 #define MyAppName "KeySound"
-#define MyAppVersion "1.5"
+#define MyAppVersion "2.2"
 #define MyAppPublisher "Bojaka"
 #define MyAppURL "https://www.bojaka.cn/"
 #define MyAppExeName "KeySound.exe"
@@ -27,21 +27,20 @@ InfoAfterFile=X:\keysound商业\安装后.txt
 ;PrivilegesRequired=lowest
 OutputDir=C:\Users\samur\Pictures
 OutputBaseFilename=keysoundsetup
-SetupIconFile=X:\keysound商业\128.ico
+SetupIconFile=X:\KeySound\logo.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 
 [Languages]
 Name: "chinesesimp"; MessagesFile: "compiler:Default.isl"
-Name: "english"; MessagesFile: "compiler:Languages\English.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "X:\keysound商业\output\KeySound\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "X:\keysound商业\output\KeySound\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "X:\KeySound\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "X:\KeySound\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; 注意: 不要在任何共享系统文件上使用“Flags: ignoreversion”
 
 [Icons]

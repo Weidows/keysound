@@ -2,6 +2,7 @@
     "name": "鸡你太美",
     "mode": "指定",
     "repeat_sound": "",
+    "single_key": [],
     "assigned_sounds": [
         {
             "key": "J",
@@ -18,21 +19,13 @@
         {
             "key": "M",
             "sound": "美.MP3"
-        },
-        {
-            "key": "Z",
-            "sound": "爆炸.MP3"
         }
     ],
     "soundsList": [
-        "2月23日 (1).MP3",
-        "music.MP3",
-        "rap.MP3",
         "你.MP3",
         "唱.MP3",
         "太.MP3",
-        "爆炸.MP3",
-        "篮球.MP3",
+        "美.MP3",
         "跳.MP3",
         "鸡.MP3"
     ]

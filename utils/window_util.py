@@ -10,10 +10,15 @@ from utils.mouse_util import *
 from utils.keyboard_util import *
 from utils.sound_util import *
 import json
+from utils.api import *
+from PyQt5 import QtGui
+
+
 
 # 初始化函数
 def initUI():
-    ...
+  global_config_obj.reload()
+  return global_config_obj.choose_sound
 
 # 销毁window
 def destroy_window():
@@ -60,13 +65,77 @@ def globalSwitch(open1, switch1, switch2):
       global_config_obj.reload()
       return global_config_obj.keyboard_flag,global_config_obj.mouse_flag
 
-# 查看是否开机自启
-def is_auto_start():
-    return global_config_obj.auto_run
+# 注入主题（加载css）
+def inject_theme():
+  if global_config_obj.theme == "白":
+    window_config_obj.window.load_css("""
+   * {
+  color: #3f3f3f !important;
+  background: #fff !important;
+}
+
+.key {
+  background: #ececec !important;
+  color: #3f3f3f !important;
+}
+
+.key:hover::after {
+  content: attr(alt);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffffffbe !important;
+  border-radius: 5px;
+}
+
+.active {
+  background: linear-gradient(315deg, #cacaca, #cacaca) !important;
+}
+
+.el-switch__core .el-switch__action {
+  background: #cacaca !important;
+}
+
+.el-switch.is-checked .el-switch__core .el-switch__action {
+  background: skyblue !important;
+}
+
+.item:hover span {
+  background: #ececec !important;
+  transition: all 0.2s;
+}
+
+.item:hover span:last-child {
+  color: red !important;
+}
+
+.menu {
+  border-right: 1px solid #ebeef5 !important;
+}
+
+.router-link-exact-active i {
+  color: #409eff !important;
+}
+
+.el-select-dropdown__item:hover {
+  background: #ececec !important;
+}
+
+.el-select-dropdown__item:hover span {
+  background: #ececec !important;
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner::after {
+  background: skyblue !important;
+}
+   
+   """)
+
 
 # 创建window
 def create_window_():
-    window_config_obj.window = webview.create_window('KeySound', 'http://127.0.0.1:8080/', width=1200, height=550,text_select=False,resizable=True)
+    window_config_obj.window = webview.create_window('KeySound', './ui/index.html', width=1200, height=560,text_select=False,resizable=True)
+    # window_config_obj.window = webview.create_window('KeySound', 'http://127.0.0.1:8080/', width=1200, height=560,text_select=False,resizable=True)
     window_config_obj.window.events.closing += on_closing
     window_config_obj.window.expose(getSoundList,
                        getSoundInfo,
@@ -79,16 +148,28 @@ def create_window_():
                        playSound,
                        exportSound,
                        importSound,
+                       single_key_switch,
                        globalSwitch,
                       delSoundFile,
-                      is_auto_start,
                       auto_start,
+                      get_all_switch_state,
+                      update_all_switch_state,
+                      inject_theme,
+                      list_plugins,
+                      get_plugin,
+                      delete_plugin,
+                      upload_plugin,
+                      upload_file,
+                      download_file,
+                      upload_sound
     )
     # 查看本地debug.txt是否存在 存在则开启debug模式
+    tmp = False
     if os.path.exists('debug.txt'):
-      webview.start(debug=True)
+      tmp = True
     else:
-      webview.start()
+      tmp = False
+    webview.start(debug=tmp, gui='qt')
 
 
 # 创建菜单
@@ -96,11 +177,10 @@ def create_menu(event):
     window_config_obj.event = event
     test()
     menu = (
-      # MenuItem(text='销毁创建', action=self.destroy_window),
-      # MenuItem(text='测试', action=self.test),
       MenuItem(text='显示', action=test, default=True, visible=False),
       MenuItem(text='退出', action=on_exit),
     )
+    
     image = Image.open("logo.ico")
     icon = pystray.Icon("name", image, "keysound", menu)
     icon.run()

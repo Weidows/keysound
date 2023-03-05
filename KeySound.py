@@ -13,6 +13,8 @@ from utils.window_util import *
 
 
 if __name__ == '__main__':
+  if not os.path.exists("tmp"):
+    os.mkdir("tmp")
   try:
     me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
   except:

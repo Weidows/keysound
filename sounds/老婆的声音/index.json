@@ -1,6 +1,6 @@
 {
     "name": "老婆的声音",
-    "mode": "指定",
+    "mode": "随机",
     "repeat_sound": "10.wav",
     "assigned_sounds": [
         {
@@ -12,9 +12,9 @@
             "sound": "13.wav"
         }
     ],
+    "single_key": [],
     "soundsList": [
         "1.wav",
-        "10.wav",
         "11.wav",
         "12.wav",
         "13.wav",
